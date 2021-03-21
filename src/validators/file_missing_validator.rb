@@ -2,7 +2,6 @@
 
 require_relative '../result'
 
-
 class FileMissingValidator
   def initialize(filename)
     @filename = filename
