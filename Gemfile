@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 
 ruby '~> 2.7'
 
+# Typed structs and value objects
+gem 'dry-struct', '~> 1.4'
+
 # Thor is a toolkit for building powerful command-line interfaces.
 gem 'thor', '~> 1.1'
 

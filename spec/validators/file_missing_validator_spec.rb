@@ -13,8 +13,7 @@ describe FileMissingValidator do
       end
 
       it "returns the error" do
-        expect(validator.validate.failure?).
-          to be_truthy
+        expect(validator.validate.failure?).to be_truthy
       end
     end
 
@@ -25,8 +24,7 @@ describe FileMissingValidator do
       let(:file) { fixture(filename) }
 
       it "returns the error" do
-        expect(validator.validate.success?).
-          to be_truthy
+        expect(validator.validate.success?).to be_truthy
       end
     end
   end

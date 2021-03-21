@@ -1,21 +1,18 @@
 # frozen_string_literal: true
 
-require 'faker'
-require 'pry'
-require_relative '../../src/validators/log_entry_validator'
+require_relative '../../src/validators/line_parser_validator'
 
-describe LogEntryValidator do
+describe LineParserValidator do
   describe "#validate" do
     subject(:validator) do
-      LogEntryValidator.new(line)
+      LineParserValidator.new(line)
     end
 
     context "with blank log entry" do
       let(:line) { '' }
 
       it "returns the error" do
-        expect(validator.validate).
-          to be_failure
+        expect(validator.validate).to be_failure
       end
     end
 
@@ -23,8 +20,7 @@ describe LogEntryValidator do
       let(:line) { '/index802.683.925.780' }
 
       it "returns the error" do
-        expect(validator.validate).
-          to be_failure
+        expect(validator.validate).to be_failure
       end
     end
 
@@ -32,8 +28,7 @@ describe LogEntryValidator do
       let(:line) { '/index 802.683.925.780' }
 
       it "returns the error" do
-        expect(validator.validate).
-          to be_success
+        expect(validator.validate).to be_success
       end
     end
   end

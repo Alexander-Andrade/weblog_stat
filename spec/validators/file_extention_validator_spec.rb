@@ -15,8 +15,7 @@ describe FileExtensionValidator do
       end
 
       it "returns the error" do
-        expect(validator.validate.failure?).
-          to be_truthy
+        expect(validator.validate.failure?).to be_truthy
       end
     end
 
@@ -26,8 +25,7 @@ describe FileExtensionValidator do
       end
 
       it "returns the error" do
-        expect(validator.validate.success?).
-          to be_truthy
+        expect(validator.validate.success?).to be_truthy
       end
     end
   end
