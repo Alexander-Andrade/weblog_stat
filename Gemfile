@@ -23,6 +23,8 @@ group :development do
 end
 
 group :test do
+  # is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 2.17'
   # Collection cardinality matchers, extracted from rspec-expectations
   gem 'rspec-collection_matchers', '~> 1.2'
   # BDD for Ruby
