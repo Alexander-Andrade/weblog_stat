@@ -2,7 +2,7 @@
 
 require_relative '../result'
 
-class LogEntryValidator
+class LineParserValidator
   def initialize(line)
     @line = line
   end
