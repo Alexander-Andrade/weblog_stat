@@ -4,8 +4,6 @@ require_relative 'result'
 require_relative 'log_entry'
 require_relative 'validators/line_parser_validator'
 
-require 'pry'
-
 class LineParser
   def initialize(line)
     @line = line

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'validators/file_missing_validator'
+require_relative 'validators/file_extension_validator'
+require_relative 'result'
+
 class LogFileReader
   LOG_FILE_EXT = '.log'
 
@@ -16,9 +20,10 @@ class LogFileReader
     return result if result.failure?
 
     File.open(filename, 'r').each do |line|
-      result = block.call(line)
-      return result if result.failure?
+      block.call(line)
     end
+
+    Result.success
   end
 
   private
