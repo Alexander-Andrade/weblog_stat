@@ -17,6 +17,16 @@ describe FileMissingValidator do
       end
     end
 
+    context "with no file" do
+      subject(:validator) { described_class.new(filename) }
+
+      let(:filename) { nil }
+
+      it "returns the error" do
+        expect(validator.validate).to be_failure
+      end
+    end
+
     context "with file present" do
       subject(:validator) { described_class.new(file.path) }
 

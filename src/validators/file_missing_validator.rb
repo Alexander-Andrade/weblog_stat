@@ -8,9 +8,9 @@ class FileMissingValidator
   end
 
   def validate
-    return Result.success if File.exist?(filename)
+    return Result.success if filename && File.exist?(filename)
 
-    Result.failure(filename, 'is missing')
+    Result.failure(filename, 'file parameter is missing')
   end
 
   private
