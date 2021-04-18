@@ -10,7 +10,7 @@ describe PagesStatisticsUniq do
   end
 
   describe "#add_log_entry" do
-    context "entries the same path" do
+    context "when entries have the same path" do
       let(:path) { '/about/2' }
       let(:addr) { '061.945.150.735' }
       let(:log_entry) do
