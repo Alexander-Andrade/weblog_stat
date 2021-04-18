@@ -6,7 +6,7 @@ class PagesStatistics
   attr_accessor :stat_hash
 
   def initialize(array_transformer_klazz: StatisticsArrayTransformer)
-    @stat_hash = Hash.new { |hash, key| hash[key] = 0 }
+    @stat_hash = Hash.new { 0 }
     @array_transformer_klazz = array_transformer_klazz
   end
 

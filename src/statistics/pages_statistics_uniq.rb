@@ -6,6 +6,8 @@ class PagesStatisticsUniq
   attr_accessor :stat_hash
 
   def initialize(array_transformer_klazz: StatisticsUniqArrayTransformer)
+    # as object of a Set class is a mutable variable,
+    # it should be created per each hash key individually
     @stat_hash = Hash.new { |hash, key| hash[key] = Set.new }
     @array_transformer_klazz = array_transformer_klazz
   end
