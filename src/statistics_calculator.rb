@@ -13,16 +13,18 @@ class StatisticsCalculator
   end
 
   def call
-    file_result = LogFileReader.new(filename).each_line { |line| process_line(line) }
+    file_result = LogFileReader.new(filename).each_line do |line|
+      result = process_line(line)
+      return result if result.failure?
+    end
+
     return file_result if file_result.failure?
 
     sorted_stat_entries = StatEntriesDescSorter.new(pages_statistics.to_stat_array).sort
     sorted_uniq_stat_entries = StatEntriesDescSorter.new(pages_statistics_uniq.to_stat_array).sort
 
-    response_data = {
-      sorted_stat_entries: sorted_stat_entries,
-      sorted_uniq_stat_entries: sorted_uniq_stat_entries
-    }
+    response_data = { sorted_stat_entries: sorted_stat_entries,
+                      sorted_uniq_stat_entries: sorted_uniq_stat_entries }
     Result.success(response_data)
   end
 
