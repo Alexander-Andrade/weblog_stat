@@ -6,7 +6,7 @@ require_relative '../../src/validators/file_extension_validator'
 describe FileExtensionValidator do
   describe "#validate" do
     subject(:validator) do
-      FileExtensionValidator.new(filename, extension: '.log')
+      described_class.new(filename, extension: '.log')
     end
 
     context "with incorrect file extension" do
@@ -15,7 +15,7 @@ describe FileExtensionValidator do
       end
 
       it "returns the error" do
-        expect(validator.validate.failure?).to be_truthy
+        expect(validator.validate).to be_failure
       end
     end
 
@@ -25,7 +25,7 @@ describe FileExtensionValidator do
       end
 
       it "returns the error" do
-        expect(validator.validate.success?).to be_truthy
+        expect(validator.validate).to be_success
       end
     end
   end

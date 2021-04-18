@@ -5,7 +5,7 @@ require_relative '../../src/validators/line_parser_validator'
 describe LineParserValidator do
   describe "#validate" do
     subject(:validator) do
-      LineParserValidator.new(line)
+      described_class.new(line)
     end
 
     context "with blank log entry" do

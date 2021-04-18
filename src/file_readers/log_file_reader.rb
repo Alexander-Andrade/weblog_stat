@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'validators/file_missing_validator'
-require_relative 'validators/file_extension_validator'
-require_relative 'result'
+require_relative '../validators/file_missing_validator'
+require_relative '../validators/file_extension_validator'
+require_relative '../models/result'
 
 class LogFileReader
   LOG_FILE_EXT = '.log'
@@ -19,9 +19,7 @@ class LogFileReader
       new(filename, extension: LOG_FILE_EXT).validate
     return result if result.failure?
 
-    File.open(filename, 'r').each do |line|
-      block.call(line)
-    end
+    File.open(filename, 'r').each(&block)
 
     Result.success
   end

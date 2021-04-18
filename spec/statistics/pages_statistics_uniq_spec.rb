@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative '../src/log_entry'
-require_relative '../src/stat_entry'
-require_relative '../src/pages_statistics_uniq'
+require_relative '../../src/models/log_entry'
+require_relative '../../src/models/stat_entry'
+require_relative '../../src/statistics/pages_statistics_uniq'
 
 describe PagesStatisticsUniq do
   subject(:pages_statistics) do
-    PagesStatisticsUniq.new
+    described_class.new
   end
 
   describe "#add_log_entry" do

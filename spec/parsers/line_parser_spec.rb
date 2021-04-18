@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative '../src/line_parser'
-require_relative '../src/log_entry'
+require_relative '../../src/parsers/line_parser'
+require_relative '../../src/models/log_entry'
 
 describe LineParser do
   describe "#parse" do
     subject(:parser) do
-      LineParser.new(line)
+      described_class.new(line)
     end
 
     context "with blank log entry" do

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../src/stat_entry'
-require_relative '../src/stat_entries_desc_sorter'
+require_relative '../../src/models/stat_entry'
+require_relative '../../src/sorters/stat_entries_desc_sorter'
 
 describe StatEntriesDescSorter do
   subject(:sorter) do
-    StatEntriesDescSorter.new(stat_entries)
+    described_class.new(stat_entries)
   end
 
   describe "#sort" do

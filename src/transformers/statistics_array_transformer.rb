@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'stat_entry'
+require_relative '../models/stat_entry'
 
 class StatisticsArrayTransformer
   def initialize(stat_hash)

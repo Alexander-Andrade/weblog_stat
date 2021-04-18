@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../src/log_entry'
+require_relative '../../src/models/log_entry'
 
 describe LogEntry do
   describe "#new" do
     subject(:log_entry) do
-      LogEntry.new(path: path, addr: addr)
+      described_class.new(path: path, addr: addr)
     end
 
     context "with valid attributes" do
@@ -13,7 +13,7 @@ describe LogEntry do
       let(:addr) { '929.398.951.889' }
 
       it "can be instantiated" do
-        expect(log_entry).to be_a_kind_of(LogEntry)
+        expect(log_entry).to be_a_kind_of(described_class)
       end
     end
   end

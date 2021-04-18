@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../result'
+require_relative '../models/result'
 
 class LineParserValidator
   def initialize(line)
@@ -12,7 +12,7 @@ class LineParserValidator
       return Result.failure('blank line exists')
     end
 
-    unless stripped_line =~ /\s/
+    unless /\s/.match?(stripped_line)
       return Result.failure('log entry incorrect format')
     end
 

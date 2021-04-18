@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'statistics_array_transformer'
+require_relative '../transformers/statistics_array_transformer'
 
 class PagesStatistics
   attr_accessor :stat_hash

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'log_file_reader'
-require_relative 'line_parser'
-require_relative 'pages_statistics'
-require_relative 'pages_statistics_uniq'
-require_relative 'stat_entries_desc_sorter'
-require_relative 'result'
+require_relative 'file_readers/log_file_reader'
+require_relative 'parsers/line_parser'
+require_relative 'statistics/pages_statistics'
+require_relative 'statistics/pages_statistics_uniq'
+require_relative 'sorters/stat_entries_desc_sorter'
+require_relative 'models/result'
 
 class StatisticsCalculator
   def initialize(filename:)
@@ -32,10 +32,12 @@ class StatisticsCalculator
     sorted_uniq_stat_entries = StatEntriesDescSorter.
       new(pages_statistics_uniq.to_stat_array).sort
 
-    Result.success({
-      sorted_stat_entries: sorted_stat_entries,
-      sorted_uniq_stat_entries: sorted_uniq_stat_entries
-    })
+    Result.success(
+      {
+        sorted_stat_entries: sorted_stat_entries,
+        sorted_uniq_stat_entries: sorted_uniq_stat_entries
+      }
+    )
   end
 
   private

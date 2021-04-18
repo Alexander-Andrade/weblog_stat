@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative '../src/log_entry'
-require_relative '../src/stat_entry'
-require_relative '../src/pages_statistics'
+require_relative '../../src/models/log_entry'
+require_relative '../../src/models/stat_entry'
+require_relative '../../src/statistics/pages_statistics'
 
 describe PagesStatistics do
   subject(:pages_statistics) do
-    PagesStatistics.new
+    described_class.new
   end
 
   describe "#add_log_entry" do
-    context "entries with the same path" do
+    context "when entries with the same path" do
       let(:path) { '/about/2' }
       let(:addr) { '061.945.150.735' }
       let(:log_entry) do
@@ -35,7 +35,7 @@ describe PagesStatistics do
   end
 
   describe "#to_stat_array" do
-    context "entries with the same path" do
+    context "when entries with the same path" do
       let(:path) { '/about/2' }
       let(:addr) { '061.945.150.735' }
       let(:log_entry) do

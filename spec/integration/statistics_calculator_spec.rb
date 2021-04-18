@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../src/statistics_calculator'
-require_relative '../src/stat_entry'
+require_relative '../../src/statistics_calculator'
+require_relative '../../src/models/stat_entry'
 require 'faker'
 require 'pry'
 
@@ -9,7 +9,7 @@ describe StatisticsCalculator do
   describe "#call" do
     context "with valid log file" do
       subject(:calculator) do
-        StatisticsCalculator.new(filename: file.path)
+        described_class.new(filename: file.path)
       end
 
       let(:filename) { 'logfile2.log' }
@@ -44,7 +44,7 @@ describe StatisticsCalculator do
 
     context "with invalid filename" do
       subject(:calculator) do
-        StatisticsCalculator.new(filename: filename)
+        described_class.new(filename: filename)
       end
 
       let(:filename) do
@@ -58,7 +58,7 @@ describe StatisticsCalculator do
 
     context "with invalid extention" do
       subject(:calculator) do
-        StatisticsCalculator.new(filename: file.path)
+        described_class.new(filename: file.path)
       end
 
       let(:filename) { 'sample.txt' }
@@ -71,7 +71,7 @@ describe StatisticsCalculator do
 
     context "with empty line" do
       subject(:calculator) do
-        StatisticsCalculator.new(filename: file.path)
+        described_class.new(filename: file.path)
       end
 
       let(:filename) { 'logfile_with_pass.log' }

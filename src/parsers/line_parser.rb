@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'result'
-require_relative 'log_entry'
-require_relative 'validators/line_parser_validator'
+require_relative '../models/result'
+require_relative '../models/log_entry'
+require_relative '../validators/line_parser_validator'
 
 class LineParser
   def initialize(line)

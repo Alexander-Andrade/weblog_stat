@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../result'
+require_relative '../models/result'
 require 'pry'
 
 class FileExtensionValidator
